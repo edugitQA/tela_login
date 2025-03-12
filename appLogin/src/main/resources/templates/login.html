@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KartControl | Login</title>
+</head>
+<style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --color-dark: rgb(14, 14, 14);
+    --color-dark2: rgb(32, 32, 32);
+    --color-white: #fff;
+    --color-green: rgb(103, 195, 80);
+    --color-green2: rgb(51, 149, 26);
+    --color-red: rgb(184, 40, 35);
+    --color-blue: rgb(18, 37, 209);
+    --color-gray: #f4f4f4;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--color-dark);
+    color: var(--color-dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+    padding: 20px;
+    text-align: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 400px;
+    background: var(--color-white);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.app-title {
+    color: var(--color-blue);
+    font-weight: bold;
+}
+form {
+    margin-top: 20px;
+}
+
+form label {
+    display: block;
+    text-align: left;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+
+
+form input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+}
+
+
+
+form button {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--color-green);
+    color: var(--color-white);
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: var(--color-green2);
+}
+
+
+p a {
+    color: var(--color-blue);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+p a:hover {
+    text-decoration: underline;
+}
+
+button{
+    color: var(--color-white);
+    width: 60px;
+    background: var(--color-red);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#lista-itens li {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+#logout-btn{
+    background-color: var(--color-blue);
+
+    border: none;
+    cursor: pointer;
+}
+
+.finalizar-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+
+#nome-lista {
+    padding: 6px;
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+
+#finalizar-compra, .btn-historico {
+    width: auto;
+    padding: 3px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+
+#finalizar-compra {
+    background-color: #28a745;
+}
+
+#finalizar-compra:hover {
+    background-color: #218838;
+}
+
+
+.btn-historico {
+    background-color: #dc3545;
+}
+
+.btn-historico:hover {
+    background-color: #c82333;
+}
+
+
+#excluir-selecionados {
+    width: auto;
+    padding: 4px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    background-color: #ff6347;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#excluir-selecionados:hover {
+    background-color: #ff3b20;
+}
+
+.checkbox-compra {
+    margin-right: 10px;
+    transform: scale(1.3);
+    cursor: pointer;
+}
+
+footer {
+    margin-top: 20px;
+    color: var(--color-white);
+    font-size: 14px;
+}
+
+@media (max-width: 500px) {
+    body {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+    }
+
+    .container {
+        width: 100%;
+        padding: 20px;
+    }
+}
+</style>
+<body>
+<div class="container">
+    <h1> 🛒 <span class="app-title">CartControl</span></h1>
+    <h2>Faça seu Login🔐</h2>
+    <form id="login-form">
+        <label for="username">👤 Usuário</label>
+        <input type="text" id="username" placeholder="Digite seu usuário" required>
+
+        <label for="password">🔒 Senha</label>
+        <input type="password" id="password" placeholder="Digite sua senha" required>
+
+        <button type="submit" class="btn-login">Entrar</button>
+    </form>
+
+    <p>Não tem uma conta? <a href="#" id="show-register">✨ Cadastre-se aqui</a></p>
+
+    <form id="register-form" style="display: none;">
+        <h2>📝 Crie sua Conta</h2>
+        <label for="new-username">👤 Novo usuário</label>
+        <input type="text" id="new-username" placeholder="Escolha um nome de usuário" required>
+
+        <label for="new-password">🔒 Senha</label>
+        <input type="password" id="new-password" placeholder="Crie uma senha segura" required>
+
+        <button type="submit" class="btn-register">✨ Criar Conta</button>
+        <p><a href="#" id="show-login">🔙 Já tem uma conta? Faça login</a></p>
+    </form>
+</div>
+
+<footer>
+    <p>👨‍💻 Desenvolvido por <strong>Eduardo Alves</strong> | © 2024 cartControl</p>
+</footer>
+
+</body>
+</html>
